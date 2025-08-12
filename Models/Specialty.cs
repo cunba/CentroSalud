@@ -1,17 +1,20 @@
+using System.Text.Json;
+using Spectre.Console;
+
 namespace Models
 {
     public class Specialty(
-        int id,
-        string name,
-        DateTime closeScheduleDate,
-        bool scheduleFull
+        int Id,
+        string Name,
+        DateTime CloseScheduleDate,
+        bool ScheduleFull
     )
     {
-        public int Id { get; set; } = id;
-        public string Name { get; set; } = name;
+        public int Id { get; set; } = Id;
+        public string Name { get; set; } = Name;
         public decimal Availability { get; set; } = 100m;
-        public DateTime CloseScheduleDate { get; set; } = closeScheduleDate;
-        public bool ScheduleFull { get; set; } = scheduleFull;
+        public DateTime CloseScheduleDate { get; set; } = CloseScheduleDate;
+        public bool ScheduleFull { get; set; } = ScheduleFull;
         public List<Doctor> Doctors { get; set; } = new List<Doctor>();
 
         public void Save(string filePath)
@@ -62,16 +65,11 @@ namespace Models
 
             table.AddColumn("Attributtes");
             table.AddColumn("Information");
-            table.AddColumn("Change it");
 
             // Add rows
-            table.AddRow("Date", Date.ToString(), "Press 1");
-            table.AddRow("Patient", Patient.Name, "Press 2");
-            table.AddRow("Doctor", Doctor.Name, "Press 3");
-            table.AddRow("Address", Doctor.Address, "");
-            table.AddRow("Specialty", Doctor.Specialty.Name, "Press 4");
-            table.AddRow("Observations", Observations, "Press 5");
-            table.AddRow("Approved", Approved.ToString(), "");
+            table.AddRow("Name", Name);
+            table.AddRow("Close schedule date", CloseScheduleDate.ToString());
+            table.AddRow("Schedule full", ScheduleFull.ToString());
 
             table.Centered();
             table.Caption("Press 8 to exit");
