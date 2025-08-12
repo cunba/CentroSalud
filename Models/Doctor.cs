@@ -3,109 +3,57 @@ using Spectre.Console;
 
 namespace Models
 {
-    public class Doctor(
-        int id,
-        string name,
-        string password,
-        string direction,
-        Specialty specialty
-        ) : User(id, name, password)
+    public class Doctor : User, IDBFunctions<Doctor>
     {
-        public string Direction { get; set; } = direction;
+        public string Address { get; set; }
         public bool ScheduleFull { get; set; } = false;
         public int NAppPerMonth { get; set; } = 10;
-        public Specialty Specialty { get; set; } = specialty;
+        public Specialty Specialty { get; set; }
+
+        public Doctor() { }
+
+        public Doctor(int id) { Id = id; }
+
+        public Doctor(
+            int id,
+            string name,
+            string password,
+            string address,
+            Specialty specialty
+        ) : base(id, name, password)
+        {
+            Address = address;
+            Specialty = specialty;
+        }
 
         public override void Save(string filePath)
         {
-            try
-            {
-                var jsonString = File.ReadAllText(filePath);
-                var doctors = JsonSerializer.Deserialize<Dictionary<int, Doctor>>(jsonString)!;
-                doctors.Add(Id, this);
 
-                var options = new JsonSerializerOptions { WriteIndented = true };
-                jsonString = JsonSerializer.Serialize(doctors, options);
-                File.WriteAllText(filePath, jsonString);
-            }
-            catch
-            {
-                var doctors = new Dictionary<int, Doctor>();
-                doctors.Add(Id, this);
-
-
-                var options = new JsonSerializerOptions { WriteIndented = true };
-                var jsonString = JsonSerializer.Serialize(doctors, options);
-                File.WriteAllText(filePath, jsonString);
-            }
+            ((IDBFunctions<Doctor>)this).Save(filePath, this, Id);
         }
 
         public override void Delete(string filePath)
         {
-            try
-            {
-                var jsonString = File.ReadAllText(filePath);
-                var doctors = JsonSerializer.Deserialize<Dictionary<int, Doctor>>(jsonString)!;
-                if (!doctors.TryGetValue(Id, out Doctor doctor))
-                {
-                    Console.WriteLine("No user found");
-                    return;
-                }
-                doctors.Remove(Id);
-
-                var options = new JsonSerializerOptions { WriteIndented = true };
-                jsonString = JsonSerializer.Serialize(doctors, options);
-                File.WriteAllText(filePath, jsonString);
-            }
-            catch
-            {
-                Console.WriteLine("Something went wrong");
-            }
+            ((IDBFunctions<Doctor>)this).Delete(filePath, Id);
         }
 
         public override void Update(string filePath)
         {
-            try
-            {
-                var jsonString = File.ReadAllText(filePath);
-                var doctors = JsonSerializer.Deserialize<Dictionary<int, Doctor>>(jsonString)!;
-                if (!doctors.TryGetValue(Id, out Doctor doctor))
-                {
-                    Console.WriteLine("No user found");
-                    return;
-                }
-                else
-                {
-                    doctors[Id] = this;
-                }
-
-                var options = new JsonSerializerOptions { WriteIndented = true };
-                jsonString = JsonSerializer.Serialize(doctors, options);
-                File.WriteAllText(filePath, jsonString);
-            }
-            catch
-            {
-                Console.WriteLine("Something went wrong");
-            }
+            ((IDBFunctions<Doctor>)this).Update(filePath, this, Id);
         }
 
         public override void Get(string filePath)
         {
             try
             {
-                var jsonString = File.ReadAllText(filePath);
-                var doctors = JsonSerializer.Deserialize<Dictionary<int, Doctor>>(jsonString)!;
-                if (!doctors.TryGetValue(Id, out Doctor doctor))
-                {
-                    Console.WriteLine("No user found");
-                    return;
-                }
-                else
+                var doctor = ((IDBFunctions<Doctor>)this).Get<Doctor>(filePath, Id);
+
+                if (doctor != null)
                 {
                     Id = doctor.Id;
                     Name = doctor.Name;
                     Password = doctor.Password;
-                    Direction = doctor.Direction;
+                    Address = doctor.Address;
                     ScheduleFull = doctor.ScheduleFull;
                     NAppPerMonth = doctor.NAppPerMonth;
                     Specialty = doctor.Specialty;
@@ -135,7 +83,7 @@ namespace Models
             // Add rows
             table.AddRow("Name", Name, "Press 1");
             table.AddRow("Password", "*********", "Press 2");
-            table.AddRow("Direction", Direction, "Press 3");
+            table.AddRow("Address", Address, "Press 3");
             table.AddRow("Schedule full", ScheduleFull.ToString(), "Press 4");
             table.AddRow("Appointments per month", NAppPerMonth.ToString(), "Press 5");
             table.AddRow("Specialty", Specialty.Name, "Press 6");
