@@ -1,21 +1,32 @@
 namespace Models
 {
-    public abstract class User(int id, string name, string password)
+    public abstract class User
     {
-        public int Id { get; set; } = id;
-        public string Name { get; set; } = name;
-        public string Password { get; set; } = password;
+        public int Id { get; set; }
+        public string Name { get; set; } = "";
+        public string Password { get; set; } = "";
         public DateTime Created { get; set; } = DateTime.Now;
         public bool Active { get; set; } = true;
         public List<Appointment> Appointments = new List<Appointment>();
 
-        public abstract void Save(string filePath);
+        public User(int id, string name, string password)
+        {
+            Id = id;
+            Name = name;
+            Password = password;
+        }
 
-        public abstract void Delete(string filePath);
+        public User(int id) { Id = id; }
 
-        public abstract void Update(string filePath);
+        public User() { }
 
-        public abstract void Upload(string filePath);
+        public abstract void Save(string dirPath);
+
+        public abstract void Delete(string dirPath);
+
+        public abstract void Update(string dirPath);
+
+        public abstract void Get(string dirPath);
 
         public abstract void Show();
     }

@@ -3,17 +3,16 @@ namespace Models
     public class Specialty(
         int id,
         string name,
-        decimal availability,
         DateTime closeScheduleDate,
         bool scheduleFull
     )
     {
         public int Id { get; set; } = id;
         public string Name { get; set; } = name;
-        public decimal Availability { get; set; } = availability;
+        public decimal Availability { get; set; } = 100m;
         public DateTime CloseScheduleDate { get; set; } = closeScheduleDate;
         public bool ScheduleFull { get; set; } = scheduleFull;
-        public List<Doctors> Doctors { get; set; } = new List<Doctors>();
+        public List<Doctor> Doctors { get; set; } = new List<Doctor>();
 
         public void Create(string filePath)
         {
