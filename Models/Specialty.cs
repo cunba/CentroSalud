@@ -3,19 +3,38 @@ using Spectre.Console;
 
 namespace Models
 {
-    public class Specialty(
-        int Id,
-        string Name,
-        DateTime CloseScheduleDate,
-        bool ScheduleFull
-    )
+    public class Specialty : IDBFunctions<Specialty>
     {
-        public int Id { get; set; } = Id;
-        public string Name { get; set; } = Name;
+        public int Id { get; set; }
+        public string Name { get; set; }
         public decimal Availability { get; set; } = 100m;
-        public DateTime CloseScheduleDate { get; set; } = CloseScheduleDate;
-        public bool ScheduleFull { get; set; } = ScheduleFull;
-        public List<Doctor> Doctors { get; set; } = new List<Doctor>();
+        public DateTime CloseScheduleDate { get; set; }
+        public bool ScheduleFull { get; set; }
+
+        public Specialty() { }
+
+        public Specialty(int id) { Id = id; }
+
+        public Specialty(
+            int id,
+            string name,
+            DateTime closeScheduleDate,
+            bool scheduleFull
+        )
+        {
+            Id = id;
+            Name = name;
+            CloseScheduleDate = closeScheduleDate;
+            ScheduleFull = scheduleFull;
+        }
+
+        public Specialty(Specialty specialty)
+        {
+            Id = specialty.Id;
+            Name = specialty.Name;
+            CloseScheduleDate = specialty.CloseScheduleDate;
+            ScheduleFull = specialty.ScheduleFull;
+        }
 
         public void Save(string filePath)
         {
@@ -46,7 +65,6 @@ namespace Models
                     Availability = appointment.Availability;
                     CloseScheduleDate = appointment.CloseScheduleDate;
                     ScheduleFull = appointment.ScheduleFull;
-                    Doctors = appointment.Doctors;
                 }
             }
             catch
@@ -72,11 +90,37 @@ namespace Models
             table.AddRow("Schedule full", ScheduleFull.ToString());
 
             table.Centered();
-            table.Caption("Press 8 to exit");
+            table.Caption("Press e to exit");
             table.Columns[0].Padding(2, 4);
 
             // Render the table to the console
             AnsiConsole.Write(table);
+        }
+
+        public void ShowList()
+        {
+            var grid = new Grid();
+            grid.AddColumn();
+            grid.AddColumn();
+            
+            grid.AddRow(new Text[]{
+                new Text("Name:").RightJustified(),
+                new Text(Name)
+            });
+            grid.AddRow(new Text[]{
+                new Text("Close schedule date:").RightJustified(),
+                new Text(CloseScheduleDate.ToString())
+            });
+            grid.AddRow(new Text[]{
+                new Text("Schedule full:").RightJustified(),
+                new Text(ScheduleFull.ToString())
+            });
+
+            var panel = new Panel(grid)
+            .Border(BoxBorder.Rounded)
+            .Header($"ID {Id.ToString()}", Justify.Center);
+
+            AnsiConsole.Write(Align.Center(panel));
         }
     }
 }

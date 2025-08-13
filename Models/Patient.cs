@@ -91,7 +91,7 @@ namespace Models
 
             table.Centered();
             table.Columns[0].Padding(2, 4);
-            table.Caption("Press 8 to exit");
+            table.Caption("Press e to exit");
 
             // Render the table to the console
             AnsiConsole.Write(table);

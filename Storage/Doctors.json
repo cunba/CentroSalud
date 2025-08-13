@@ -1,0 +1,274 @@
+{
+  "78994558": {
+    "Address": "Ronda de Dalt 45, Barcelona",
+    "ScheduleFull": false,
+    "NAppPerMonth": 10,
+    "Specialty": {
+      "Id": 1,
+      "Name": "Oftalmolog\u00EDa",
+      "Availability": 100,
+      "CloseScheduleDate": "2025-08-13T04:22:46.231041+02:00",
+      "ScheduleFull": false
+    },
+    "Id": 78994558,
+    "Name": "Jaime Murillo",
+    "Password": "JaimeMurillo",
+    "Created": "2025-08-13T04:22:46.278367+02:00",
+    "Active": true
+  },
+  "78993458": {
+    "Address": "Travesera de Gracia 15, Barcelona",
+    "ScheduleFull": false,
+    "NAppPerMonth": 10,
+    "Specialty": {
+      "Id": 1,
+      "Name": "Oftalmolog\u00EDa",
+      "Availability": 100,
+      "CloseScheduleDate": "2025-08-13T04:22:46.231041+02:00",
+      "ScheduleFull": false
+    },
+    "Id": 78993458,
+    "Name": "Mar\u00EDa Viejo",
+    "Password": "MariaViejo",
+    "Created": "2025-08-13T04:22:46.280266+02:00",
+    "Active": true
+  },
+  "45643334": {
+    "Address": "Ronda de Dalt 45, Barcelona",
+    "ScheduleFull": false,
+    "NAppPerMonth": 10,
+    "Specialty": {
+      "Id": 2,
+      "Name": "Ginecolog\u00EDa",
+      "Availability": 100,
+      "CloseScheduleDate": "2025-08-13T04:22:46.280422+02:00",
+      "ScheduleFull": false
+    },
+    "Id": 45643334,
+    "Name": "Miguel Hern\u00E1ndez",
+    "Password": "MiguelHernandez",
+    "Created": "2025-08-13T04:22:46.280524+02:00",
+    "Active": true
+  },
+  "48958374": {
+    "Address": "Travesera de Gracia 15, Barcelona",
+    "ScheduleFull": false,
+    "NAppPerMonth": 10,
+    "Specialty": {
+      "Id": 2,
+      "Name": "Ginecolog\u00EDa",
+      "Availability": 100,
+      "CloseScheduleDate": "2025-08-13T04:22:46.280422+02:00",
+      "ScheduleFull": false
+    },
+    "Id": 48958374,
+    "Name": "Manuel Santamar\u00EDa",
+    "Password": "ManuelSantamaria",
+    "Created": "2025-08-13T04:22:46.280623+02:00",
+    "Active": true
+  },
+  "83448759": {
+    "Address": "Ronda de Dalt 45, Barcelona",
+    "ScheduleFull": false,
+    "NAppPerMonth": 10,
+    "Specialty": {
+      "Id": 3,
+      "Name": "Dermatolog\u00EDa",
+      "Availability": 100,
+      "CloseScheduleDate": "2025-08-13T04:22:46.280727+02:00",
+      "ScheduleFull": true
+    },
+    "Id": 83448759,
+    "Name": "Cristina Castillo",
+    "Password": "CristinaCastillo",
+    "Created": "2025-08-13T04:22:46.280727+02:00",
+    "Active": true
+  },
+  "29384839": {
+    "Address": "Travesera de Gracia 15, Barcelona",
+    "ScheduleFull": false,
+    "NAppPerMonth": 10,
+    "Specialty": {
+      "Id": 3,
+      "Name": "Dermatolog\u00EDa",
+      "Availability": 100,
+      "CloseScheduleDate": "2025-08-13T04:22:46.280727+02:00",
+      "ScheduleFull": true
+    },
+    "Id": 29384839,
+    "Name": "Irene Cunto",
+    "Password": "IreneCunto",
+    "Created": "2025-08-13T04:22:46.280849+02:00",
+    "Active": true
+  },
+  "48392019": {
+    "Address": "Vallcarca 37, Barcelona",
+    "ScheduleFull": false,
+    "NAppPerMonth": 10,
+    "Specialty": {
+      "Id": 3,
+      "Name": "Dermatolog\u00EDa",
+      "Availability": 100,
+      "CloseScheduleDate": "2025-08-13T04:22:46.280727+02:00",
+      "ScheduleFull": true
+    },
+    "Id": 48392019,
+    "Name": "Carmen Mart\u00EDnez",
+    "Password": "CarmenMartinez",
+    "Created": "2025-08-13T04:22:46.280986+02:00",
+    "Active": true
+  },
+  "39449329": {
+    "Address": "Travesera de Gracia 15, Barcelona",
+    "ScheduleFull": false,
+    "NAppPerMonth": 10,
+    "Specialty": {
+      "Id": 4,
+      "Name": "Familia",
+      "Availability": 100,
+      "CloseScheduleDate": "2025-08-13T04:22:46.281203+02:00",
+      "ScheduleFull": true
+    },
+    "Id": 39449329,
+    "Name": "Marta Gim\u00E9nez",
+    "Password": "MartaGimenez",
+    "Created": "2025-08-13T04:22:46.281287+02:00",
+    "Active": true
+  },
+  "19283904": {
+    "Address": "Vallcarca 37, Barcelona",
+    "ScheduleFull": false,
+    "NAppPerMonth": 10,
+    "Specialty": {
+      "Id": 4,
+      "Name": "Familia",
+      "Availability": 100,
+      "CloseScheduleDate": "2025-08-13T04:22:46.281203+02:00",
+      "ScheduleFull": true
+    },
+    "Id": 19283904,
+    "Name": "Carla Soler",
+    "Password": "MartaSoler",
+    "Created": "2025-08-13T04:22:46.281422+02:00",
+    "Active": true
+  },
+  "93102938": {
+    "Address": "Vallcarca 37, Barcelona",
+    "ScheduleFull": false,
+    "NAppPerMonth": 10,
+    "Specialty": {
+      "Id": 5,
+      "Name": "Oncolog\u00EDa",
+      "Availability": 100,
+      "CloseScheduleDate": "2025-08-13T04:22:46.281555+02:00",
+      "ScheduleFull": false
+    },
+    "Id": 93102938,
+    "Name": "Carmen Mart\u00EDnez",
+    "Password": "CarmenMartinez",
+    "Created": "2025-08-13T04:22:46.28166+02:00",
+    "Active": true
+  },
+  "83847382": {
+    "Address": "Vallcarca 37, Barcelona",
+    "ScheduleFull": false,
+    "NAppPerMonth": 10,
+    "Specialty": {
+      "Id": 6,
+      "Name": "Pediatr\u00EDa",
+      "Availability": 100,
+      "CloseScheduleDate": "2025-08-13T04:22:46.281797+02:00",
+      "ScheduleFull": true
+    },
+    "Id": 83847382,
+    "Name": "Francisco Aguirre",
+    "Password": "FranciscoAguirre",
+    "Created": "2025-08-13T04:22:46.28189+02:00",
+    "Active": true
+  },
+  "39282748": {
+    "Address": "Travesera de Gracia 15, Barcelona",
+    "ScheduleFull": false,
+    "NAppPerMonth": 10,
+    "Specialty": {
+      "Id": 6,
+      "Name": "Pediatr\u00EDa",
+      "Availability": 100,
+      "CloseScheduleDate": "2025-08-13T04:22:46.281797+02:00",
+      "ScheduleFull": true
+    },
+    "Id": 39282748,
+    "Name": "Carmen Mart\u00EDnez",
+    "Password": "CarmenMartinez",
+    "Created": "2025-08-13T04:22:46.282032+02:00",
+    "Active": true
+  },
+  "28374447": {
+    "Address": "Ronda de Dalt 45, Barcelona",
+    "ScheduleFull": false,
+    "NAppPerMonth": 10,
+    "Specialty": {
+      "Id": 6,
+      "Name": "Pediatr\u00EDa",
+      "Availability": 100,
+      "CloseScheduleDate": "2025-08-13T04:22:46.281797+02:00",
+      "ScheduleFull": true
+    },
+    "Id": 28374447,
+    "Name": "Carmen Mart\u00EDnez",
+    "Password": "CarmenMartinez",
+    "Created": "2025-08-13T04:22:46.282199+02:00",
+    "Active": true
+  },
+  "90283728": {
+    "Address": "Ronda Guinard\u00F3 47, Barcelona",
+    "ScheduleFull": false,
+    "NAppPerMonth": 10,
+    "Specialty": {
+      "Id": 6,
+      "Name": "Pediatr\u00EDa",
+      "Availability": 100,
+      "CloseScheduleDate": "2025-08-13T04:22:46.281797+02:00",
+      "ScheduleFull": true
+    },
+    "Id": 90283728,
+    "Name": "Carmen Mart\u00EDnez",
+    "Password": "CarmenMartinez",
+    "Created": "2025-08-13T04:22:46.282367+02:00",
+    "Active": true
+  },
+  "37447928": {
+    "Address": "Ronda Guinard\u00F3 47, Barcelona",
+    "ScheduleFull": false,
+    "NAppPerMonth": 10,
+    "Specialty": {
+      "Id": 7,
+      "Name": "Urolog\u00EDa",
+      "Availability": 100,
+      "CloseScheduleDate": "2025-08-13T04:22:46.28261+02:00",
+      "ScheduleFull": false
+    },
+    "Id": 37447928,
+    "Name": "Luis Castro",
+    "Password": "LuisCastro",
+    "Created": "2025-08-13T04:22:46.282733+02:00",
+    "Active": true
+  },
+  "28384920": {
+    "Address": "Ronda Guinard\u00F3 47, Barcelona",
+    "ScheduleFull": false,
+    "NAppPerMonth": 10,
+    "Specialty": {
+      "Id": 8,
+      "Name": "Cardiolog\u00EDa",
+      "Availability": 100,
+      "CloseScheduleDate": "2025-08-13T04:22:46.28292+02:00",
+      "ScheduleFull": false
+    },
+    "Id": 28384920,
+    "Name": "Pablo Castellano",
+    "Password": "PabloCastellano",
+    "Created": "2025-08-13T04:22:46.283021+02:00",
+    "Active": true
+  }
+}

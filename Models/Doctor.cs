@@ -26,6 +26,12 @@ namespace Models
             Specialty = specialty;
         }
 
+        public Doctor(Doctor doctor) : base(doctor.Id, doctor.Name, doctor.Password)
+        {
+            Address = doctor.Address;
+            Specialty = doctor.Specialty;
+        }
+
         public override void Save(string filePath)
         {
 
@@ -91,11 +97,46 @@ namespace Models
             table.AddRow("Active", Active.ToString(), "Press 7");
 
             table.Centered();
-            table.Caption("Press 8 to exit");
+            table.Caption("Press e to exit");
             table.Columns[0].Padding(2, 4);
 
             // Render the table to the console
             AnsiConsole.Write(table);
+        }
+
+        public void ShowList()
+        {
+            var grid = new Grid();
+            grid.AddColumn();
+            grid.AddColumn();
+            
+            grid.AddRow(new Text[]{
+                new Text("Name:").RightJustified(),
+                new Text(Name)
+            });
+            grid.AddRow(new Text[]{
+                new Text("Address:").RightJustified(),
+                new Text(Address)
+            });
+            grid.AddRow(new Text[]{
+                new Text("Schedule full:").RightJustified(),
+                new Text(ScheduleFull.ToString())
+            });
+            grid.AddRow(new Text[]{
+                new Text("Appointments per month:").RightJustified(),
+                new Text(NAppPerMonth.ToString())
+            });
+            grid.AddRow(new Text[]{
+                new Text("Specialty:").RightJustified(),
+                new Text(Specialty.Name)
+            });
+
+            var panel = new Panel(grid)
+            .Border(BoxBorder.Rounded)
+            .Header($"ID {Id.ToString()}", Justify.Center);
+            panel.Width = 65;
+
+            AnsiConsole.Write(Align.Center(panel));
         }
     }
 }

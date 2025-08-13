@@ -1,0 +1,12 @@
+{
+  "1": {
+    "Age": 25,
+    "Weight": 57.5,
+    "Height": 1.76,
+    "Id": 1,
+    "Name": "Maria",
+    "Password": "prueba",
+    "Created": "2025-08-12T21:48:08.669414+02:00",
+    "Active": true
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "1": {
+    "Id": 1,
+    "Name": "Oftalmolog\u00EDa",
+    "Availability": 100,
+    "CloseScheduleDate": "2025-08-13T04:22:46.231041+02:00",
+    "ScheduleFull": false
+  },
+  "2": {
+    "Id": 2,
+    "Name": "Ginecolog\u00EDa",
+    "Availability": 100,
+    "CloseScheduleDate": "2025-08-13T04:22:46.280422+02:00",
+    "ScheduleFull": false
+  },
+  "3": {
+    "Id": 3,
+    "Name": "Dermatolog\u00EDa",
+    "Availability": 100,
+    "CloseScheduleDate": "2025-08-13T04:22:46.280727+02:00",
+    "ScheduleFull": true
+  },
+  "4": {
+    "Id": 4,
+    "Name": "Familia",
+    "Availability": 100,
+    "CloseScheduleDate": "2025-08-13T04:22:46.281203+02:00",
+    "ScheduleFull": true
+  },
+  "5": {
+    "Id": 5,
+    "Name": "Oncolog\u00EDa",
+    "Availability": 100,
+    "CloseScheduleDate": "2025-08-13T04:22:46.281555+02:00",
+    "ScheduleFull": false
+  },
+  "6": {
+    "Id": 6,
+    "Name": "Pediatr\u00EDa",
+    "Availability": 100,
+    "CloseScheduleDate": "2025-08-13T04:22:46.281797+02:00",
+    "ScheduleFull": true
+  },
+  "7": {
+    "Id": 7,
+    "Name": "Urolog\u00EDa",
+    "Availability": 100,
+    "CloseScheduleDate": "2025-08-13T04:22:46.28261+02:00",
+    "ScheduleFull": false
+  },
+  "8": {
+    "Id": 8,
+    "Name": "Cardiolog\u00EDa",
+    "Availability": 100,
+    "CloseScheduleDate": "2025-08-13T04:22:46.28292+02:00",
+    "ScheduleFull": false
+  },
+  "9": {
+    "Id": 9,
+    "Name": "Traumatolog\u00EDa",
+    "Availability": 100,
+    "CloseScheduleDate": "2025-08-13T04:22:46.283203+02:00",
+    "ScheduleFull": true
+  }
+}

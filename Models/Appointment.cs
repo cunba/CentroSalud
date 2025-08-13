@@ -93,7 +93,7 @@ namespace Models
             table.AddRow("Approved", Approved.ToString(), "");
 
             table.Centered();
-            table.Caption("Press 8 to exit");
+            table.Caption("Press e to exit");
             table.Columns[0].Padding(2, 4);
 
             // Render the table to the console
