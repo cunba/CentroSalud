@@ -45,26 +45,23 @@ namespace Models
 
         public override void Get(string filePath)
         {
-            try
-            {
-                var patient = ((IDBFunctions<Patient>)this).Get<Patient>(filePath, Id);
+            var patient = ((IDBFunctions<Patient>)this).Get<Patient>(filePath, Id);
 
-                if (patient != null)
-                {
-                    Id = patient.Id;
-                    Name = patient.Name;
-                    Password = patient.Password;
-                    Age = patient.Age;
-                    Weight = patient.Weight;
-                    Height = patient.Height;
-                    Active = patient.Active;
-                    Created = patient.Created;
-                    Appointments = patient.Appointments;
-                }
-            }
-            catch
+            if (patient != null)
             {
-                Console.WriteLine("Something went wrong");
+                Id = patient.Id;
+                Name = patient.Name;
+                Password = patient.Password;
+                Age = patient.Age;
+                Weight = patient.Weight;
+                Height = patient.Height;
+                Active = patient.Active;
+                Created = patient.Created;
+                Appointments = patient.Appointments;
+            }
+            else
+            {
+                throw new ArgumentNullException();
             }
         }
 
@@ -81,8 +78,8 @@ namespace Models
             table.AddColumn("Change it");
 
             // Add rows
-            table.AddRow("Name", Name, "Press 1");
-            table.AddRow("Password", "*********", "Press 2");
+            table.AddRow("Name:", Name, "Press 1");
+            table.AddRow("Password:", "*********", "Press 2");
             table.AddRow("Age", Age.ToString(), "Press 3");
             table.AddRow("Weight", Weight.ToString(), "Press 4");
             table.AddRow("Height", Height.ToString(), "Press 5");
@@ -91,7 +88,6 @@ namespace Models
 
             table.Centered();
             table.Columns[0].Padding(2, 4);
-            table.Caption("Press e to exit");
 
             // Render the table to the console
             AnsiConsole.Write(table);

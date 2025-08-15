@@ -1,4 +1,4 @@
-﻿using Functions;
+﻿using Menus;
 
 // create storage dir if not exists
 string dirPath = "Storage";
@@ -10,5 +10,5 @@ string specialtiesPath = $"{dirPath}/Specialties.json";
 if (!Directory.Exists(dirPath))
     Directory.CreateDirectory(dirPath);
 
-var menu = new Menu(appointmentsPath, doctorsPath, patientsPath, specialtiesPath);
+var menu = new PublicMenu(appointmentsPath, doctorsPath, patientsPath, specialtiesPath);
 menu.Show();

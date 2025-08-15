@@ -18,14 +18,14 @@
     "Name": "Dermatolog\u00EDa",
     "Availability": 100,
     "CloseScheduleDate": "2025-08-13T04:22:46.280727+02:00",
-    "ScheduleFull": true
+    "ScheduleFull": false
   },
   "4": {
     "Id": 4,
     "Name": "Familia",
     "Availability": 100,
     "CloseScheduleDate": "2025-08-13T04:22:46.281203+02:00",
-    "ScheduleFull": true
+    "ScheduleFull": false
   },
   "5": {
     "Id": 5,
@@ -39,7 +39,7 @@
     "Name": "Pediatr\u00EDa",
     "Availability": 100,
     "CloseScheduleDate": "2025-08-13T04:22:46.281797+02:00",
-    "ScheduleFull": true
+    "ScheduleFull": false
   },
   "7": {
     "Id": 7,
@@ -60,6 +60,6 @@
     "Name": "Traumatolog\u00EDa",
     "Availability": 100,
     "CloseScheduleDate": "2025-08-13T04:22:46.283203+02:00",
-    "ScheduleFull": true
+    "ScheduleFull": false
   }
 }

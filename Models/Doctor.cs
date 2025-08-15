@@ -50,27 +50,24 @@ namespace Models
 
         public override void Get(string filePath)
         {
-            try
-            {
-                var doctor = ((IDBFunctions<Doctor>)this).Get<Doctor>(filePath, Id);
+            var doctor = ((IDBFunctions<Doctor>)this).Get<Doctor>(filePath, Id);
 
-                if (doctor != null)
-                {
-                    Id = doctor.Id;
-                    Name = doctor.Name;
-                    Password = doctor.Password;
-                    Address = doctor.Address;
-                    ScheduleFull = doctor.ScheduleFull;
-                    NAppPerMonth = doctor.NAppPerMonth;
-                    Specialty = doctor.Specialty;
-                    Active = doctor.Active;
-                    Created = doctor.Created;
-                    Appointments = doctor.Appointments;
-                }
-            }
-            catch
+            if (doctor != null)
             {
-                Console.WriteLine("Something went wrong");
+                Id = doctor.Id;
+                Name = doctor.Name;
+                Password = doctor.Password;
+                Address = doctor.Address;
+                ScheduleFull = doctor.ScheduleFull;
+                NAppPerMonth = doctor.NAppPerMonth;
+                Specialty = doctor.Specialty;
+                Active = doctor.Active;
+                Created = doctor.Created;
+                Appointments = doctor.Appointments;
+            }
+            else
+            {
+                throw new ArgumentNullException();
             }
         }
 
@@ -97,7 +94,7 @@ namespace Models
             table.AddRow("Active", Active.ToString(), "Press 7");
 
             table.Centered();
-            table.Caption("Press e to exit");
+            table.Caption("Press b to go back");
             table.Columns[0].Padding(2, 4);
 
             // Render the table to the console
@@ -109,7 +106,7 @@ namespace Models
             var grid = new Grid();
             grid.AddColumn();
             grid.AddColumn();
-            
+
             grid.AddRow(new Text[]{
                 new Text("Name:").RightJustified(),
                 new Text(Name)
@@ -136,7 +133,7 @@ namespace Models
             .Header($"ID {Id.ToString()}", Justify.Center);
             panel.Width = 65;
 
-            AnsiConsole.Write(Align.Center(panel));
+            AnsiConsole.Write(panel);
         }
     }
 }

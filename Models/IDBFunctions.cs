@@ -80,24 +80,15 @@ namespace Models
 
         public T Get<T>(string filePath, int id) where T : class
         {
-            try
+            var jsonString = File.ReadAllText(filePath);
+            var data = JsonSerializer.Deserialize<Dictionary<int, T>>(jsonString)!;
+            if (!data.TryGetValue(id, out T t))
             {
-                var jsonString = File.ReadAllText(filePath);
-                var data = JsonSerializer.Deserialize<Dictionary<int, T>>(jsonString)!;
-                if (!data.TryGetValue(id, out T t))
-                {
-                    Console.WriteLine("No data found");
-                    return null;
-                }
-                else
-                {
-                    return t;
-                }
-            }
-            catch
-            {
-                Console.WriteLine("Something went wrong");
                 return null;
+            }
+            else
+            {
+                return t;
             }
         }
     }
