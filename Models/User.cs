@@ -7,7 +7,6 @@ namespace Models
         public string Password { get; set; } = "";
         public DateTime Created { get; set; } = DateTime.Now;
         public bool Active { get; set; } = true;
-        public List<Appointment> Appointments = new List<Appointment>();
 
         public User(int id, string name, string password)
         {

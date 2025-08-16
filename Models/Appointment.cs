@@ -8,7 +8,7 @@ namespace Models
         public int Id { get; set; }
         public DateTime Date { get; set; }
         public string Observations { get; set; }
-        public bool Approved { get; set; }
+        public bool Approved { get; set; } = false;
         public Patient Patient { get; set; }
         public Doctor Doctor { get; set; }
 
@@ -20,7 +20,6 @@ namespace Models
             int id,
             DateTime date,
             string observations,
-            bool approved,
             Patient patient,
             Doctor doctor
         )
@@ -28,7 +27,6 @@ namespace Models
             Id = id;
             Date = date;
             Observations = observations;
-            Approved = approved;
             Patient = patient;
             Doctor = doctor;
         }
@@ -81,16 +79,15 @@ namespace Models
 
             table.AddColumn("Attributtes");
             table.AddColumn("Information");
-            table.AddColumn("Change it");
 
             // Add rows
-            table.AddRow("Date", Date.ToString(), "Press 1");
-            table.AddRow("Patient", Patient.Name, "Press 2");
-            table.AddRow("Doctor", Doctor.Name, "Press 3");
-            table.AddRow("Address", Doctor.Address, "");
-            table.AddRow("Specialty", Doctor.Specialty.Name, "Press 4");
-            table.AddRow("Observations", Observations, "Press 5");
-            table.AddRow("Approved", Approved.ToString(), "");
+            table.AddRow("Date", Date.ToString());
+            table.AddRow("Patient", Patient.Name);
+            table.AddRow("Doctor", Doctor.Name);
+            table.AddRow("Address", Doctor.Address);
+            table.AddRow("Specialty", Doctor.Specialty.Name);
+            table.AddRow("Observations", Observations);
+            table.AddRow("Approved", Approved.ToString());
 
             table.Centered();
             table.Caption("Press e to exit");
@@ -98,6 +95,49 @@ namespace Models
 
             // Render the table to the console
             AnsiConsole.Write(table);
+        }
+
+        public void ShowList()
+        {
+            var grid = new Grid();
+            grid.AddColumn();
+            grid.AddColumn();
+
+            grid.AddRow(new Text[]{
+                new Text("Date:").RightJustified(),
+                new Text(Date.ToString())
+            });
+            grid.AddRow(new Text[]{
+                new Text("Patient:").RightJustified(),
+                new Text(Patient.Name)
+            });
+            grid.AddRow(new Text[]{
+                new Text("Doctor:").RightJustified(),
+                new Text(Doctor.Name)
+            });
+            grid.AddRow(new Text[]{
+                new Text("Address:").RightJustified(),
+                new Text(Doctor.Address)
+            });
+            grid.AddRow(new Text[]{
+                new Text("Specialty:").RightJustified(),
+                new Text(Doctor.Specialty.Name)
+            });
+            grid.AddRow(new Text[]{
+                new Text("Observations:").RightJustified(),
+                new Text(Observations)
+            });
+            grid.AddRow(new Text[]{
+                new Text("Approved:").RightJustified(),
+                new Text(Approved.ToString())
+            });
+
+            var panel = new Panel(grid)
+            .Border(BoxBorder.Rounded)
+            .Header($"ID {Id.ToString()}", Justify.Center);
+            panel.Width = 65;
+
+            AnsiConsole.Write(panel);
         }
     }
 }

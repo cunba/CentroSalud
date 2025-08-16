@@ -6,8 +6,6 @@ namespace Models
     public class Doctor : User, IDBFunctions<Doctor>
     {
         public string Address { get; set; }
-        public bool ScheduleFull { get; set; } = false;
-        public int NAppPerMonth { get; set; } = 10;
         public Specialty Specialty { get; set; }
 
         public Doctor() { }
@@ -58,12 +56,9 @@ namespace Models
                 Name = doctor.Name;
                 Password = doctor.Password;
                 Address = doctor.Address;
-                ScheduleFull = doctor.ScheduleFull;
-                NAppPerMonth = doctor.NAppPerMonth;
                 Specialty = doctor.Specialty;
                 Active = doctor.Active;
                 Created = doctor.Created;
-                Appointments = doctor.Appointments;
             }
             else
             {
@@ -81,20 +76,16 @@ namespace Models
 
             table.AddColumn("Attributtes");
             table.AddColumn("Information");
-            table.AddColumn("Change it");
 
             // Add rows
-            table.AddRow("Name", Name, "Press 1");
-            table.AddRow("Password", "*********", "Press 2");
-            table.AddRow("Address", Address, "Press 3");
-            table.AddRow("Schedule full", ScheduleFull.ToString(), "Press 4");
-            table.AddRow("Appointments per month", NAppPerMonth.ToString(), "Press 5");
-            table.AddRow("Specialty", Specialty.Name, "Press 6");
-            table.AddRow("Created at", Created.ToString(), "");
-            table.AddRow("Active", Active.ToString(), "Press 7");
+            table.AddRow("Name", Name);
+            table.AddRow("Password", "*********");
+            table.AddRow("Address", Address);
+            table.AddRow("Specialty", Specialty.Name);
+            table.AddRow("Created at", Created.ToString());
+            table.AddRow("Active", Active.ToString());
 
             table.Centered();
-            table.Caption("Press b to go back");
             table.Columns[0].Padding(2, 4);
 
             // Render the table to the console
@@ -114,14 +105,6 @@ namespace Models
             grid.AddRow(new Text[]{
                 new Text("Address:").RightJustified(),
                 new Text(Address)
-            });
-            grid.AddRow(new Text[]{
-                new Text("Schedule full:").RightJustified(),
-                new Text(ScheduleFull.ToString())
-            });
-            grid.AddRow(new Text[]{
-                new Text("Appointments per month:").RightJustified(),
-                new Text(NAppPerMonth.ToString())
             });
             grid.AddRow(new Text[]{
                 new Text("Specialty:").RightJustified(),

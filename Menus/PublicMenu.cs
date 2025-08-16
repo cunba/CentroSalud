@@ -26,14 +26,14 @@ namespace Menus
 
             var option = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
-                    .Title("Please select what you want to do:")
-                    .AddChoices(new[] {
-                        "See available specialties",
-                        "See doctors",
-                        "Log in",
-                        "Register",
-                        "Exit"
-                    }));
+                .Title("Please select what you want to do:")
+                .AddChoices(new[] {
+                    "See available specialties",
+                    "See doctors",
+                    "Log in",
+                    "Register",
+                    "Exit"
+                }));
 
             switch (option)
             {
@@ -60,7 +60,7 @@ namespace Menus
             }
         }
 
-        void SeeSpecialties()
+        private void SeeSpecialties()
         {
             AnsiConsole.Write(new Rule("AVAILABLE SPECIALTIES"));
 
@@ -75,7 +75,7 @@ namespace Menus
             }
         }
 
-        void SeeDoctors()
+        private void SeeDoctors()
         {
             AnsiConsole.Write(new Rule("AVAILABLE DOCTORS"));
 
@@ -91,36 +91,72 @@ namespace Menus
             }
         }
 
-        void LogIn()
+        private void LogIn()
         {
+            var option = AnsiConsole.Prompt(
+                new SelectionPrompt<string>()
+                .Title("Please select what you want to do:")
+                .AddChoices(new[] {
+                    "Patient",
+                    "Doctor"
+                }));
+
+
             var id = AnsiConsole.Ask<int>("ID: ");
             var password = AnsiConsole.Prompt(new TextPrompt<string>("Password:").Secret());
+            dynamic user = "";
 
-            dynamic user = new Patient(id);
             try
             {
-                user.Get(PatientsPath);
+                if (option == "Patient")
+                {
+                    user = new Patient(id);
+                    user.Get(PatientsPath);
+                }
+                else
+                {
+                    user = new Doctor(id);
+                    user.Get(DoctorsPath);
+                }
             }
             catch
             {
-                user = new Doctor(id);
-
-                try
-                {
-                    user.Get(DoctorsPath);
-                    user.Show();
-                }
-                catch
-                {
-                    return;
-                }
+                Console.WriteLine("User not found.");
+                Thread.Sleep(2000);
+                Console.Clear();
+                Show();
+                return;
             }
 
-            // user.GetType();
-            Console.WriteLine(user.GetType().FullName);
+            if (password == user.Password)
+            {
+                var appointmentsId = 0;
+                try
+                {
+                    var jsonString = File.ReadAllText(AppointmentsPath);
+                    var appointments = JsonSerializer.Deserialize<Dictionary<int, Appointment>>(jsonString)!;
+                    appointmentsId = appointments.Values.Last().Id + 1;
+                }
+                catch { }
+
+                Console.Clear();
+                if (option == "Patient")
+                    new PrivatePatientMenu(AppointmentsPath, DoctorsPath, PatientsPath, SpecialtiesPath, user, appointmentsId).Show();
+                else
+                    new PrivateDoctorMenu(AppointmentsPath, DoctorsPath, PatientsPath, SpecialtiesPath, user, appointmentsId).Show();
+            }
+            else
+            {
+                Console.WriteLine("Wrong password.");
+                Thread.Sleep(2000);
+                Console.Clear();
+                Show();
+                return;
+            }
+
         }
 
-        void Register()
+        private void Register()
         {
             var id = AnsiConsole.Ask<int>("ID(DNI number): ");
             var name = AnsiConsole.Ask<string>("Complete name: ");
@@ -159,7 +195,7 @@ namespace Menus
 
                 var optionRegister = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
-                    .Title("Please select what you want to do:")
+                    .Title("Select specialty:")
                     .AddChoices(specialtiesSelect));
 
                 var key = specialties.FirstOrDefault(x => x.Value.Name == optionRegister).Key;

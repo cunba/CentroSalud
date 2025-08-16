@@ -1,0 +1,95 @@
+{
+  "0": {
+    "Id": 0,
+    "Date": "2025-08-20T17:00:00",
+    "Observations": "",
+    "Approved": true,
+    "Patient": {
+      "Age": 29,
+      "Weight": 55.6,
+      "Height": 1.69,
+      "Id": 72993852,
+      "Name": "Irene Cunto",
+      "Password": "IreneCunto",
+      "Created": "2025-08-15T11:57:23.539494+02:00",
+      "Active": true
+    },
+    "Doctor": {
+      "Address": "Ronda Guinardo 43",
+      "Specialty": {
+        "Id": 1,
+        "Name": "Oftalmolog\u00EDa",
+        "Availability": 100,
+        "CloseScheduleDate": "2025-08-13T04:22:46.231041+02:00",
+        "ScheduleFull": false
+      },
+      "Id": 78994558,
+      "Name": "Jaime Murillo",
+      "Password": "JaimeMurillo",
+      "Created": "2025-08-16T18:29:05.170379+02:00",
+      "Active": true
+    }
+  },
+  "1": {
+    "Id": 1,
+    "Date": "2025-08-21T17:00:00",
+    "Observations": "",
+    "Approved": false,
+    "Patient": {
+      "Age": 29,
+      "Weight": 55.6,
+      "Height": 1.69,
+      "Id": 72993852,
+      "Name": "Irene Cunto",
+      "Password": "IreneCunto",
+      "Created": "2025-08-15T11:57:23.539494+02:00",
+      "Active": true
+    },
+    "Doctor": {
+      "Address": "Ronda Guinardo 43",
+      "Specialty": {
+        "Id": 1,
+        "Name": "Oftalmolog\u00EDa",
+        "Availability": 100,
+        "CloseScheduleDate": "2025-08-13T04:22:46.231041+02:00",
+        "ScheduleFull": false
+      },
+      "Id": 78994558,
+      "Name": "Jaime Murillo",
+      "Password": "JaimeMurillo",
+      "Created": "2025-08-16T18:29:05.170379+02:00",
+      "Active": true
+    }
+  },
+  "2": {
+    "Id": 2,
+    "Date": "2025-08-30T17:00:00",
+    "Observations": "",
+    "Approved": true,
+    "Patient": {
+      "Age": 29,
+      "Weight": 55.6,
+      "Height": 1.69,
+      "Id": 72993852,
+      "Name": "Irene Cunto",
+      "Password": "IreneCunto",
+      "Created": "2025-08-15T11:57:23.539494+02:00",
+      "Active": true
+    },
+    "Doctor": {
+      "Address": "Ronda Guinardo 43",
+      "Specialty": {
+        "Id": 1,
+        "Name": "Oftalmolog\u00EDa",
+        "Availability": 100,
+        "CloseScheduleDate": "2025-08-13T04:22:46.231041+02:00",
+        "ScheduleFull": false
+      },
+      "Id": 78994558,
+      "Name": "Jaime Murillo",
+      "Password": "JaimeMurillo",
+      "Created": "2025-08-16T18:29:05.170379+02:00",
+      "Active": true
+    }
+  }
+}

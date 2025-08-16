@@ -27,6 +27,18 @@ namespace Models
 
         public Patient() { }
 
+        public Patient(Patient patient)
+        {
+            Id = patient.Id;
+            Name = patient.Name;
+            Password = patient.Password;
+            Age = patient.Age;
+            Weight = patient.Weight;
+            Height = patient.Height;
+            Active = patient.Active;
+            Created = patient.Created;
+        }
+
         public override void Save(string filePath)
         {
 
@@ -57,7 +69,6 @@ namespace Models
                 Height = patient.Height;
                 Active = patient.Active;
                 Created = patient.Created;
-                Appointments = patient.Appointments;
             }
             else
             {
@@ -75,16 +86,15 @@ namespace Models
 
             table.AddColumn("Attributtes");
             table.AddColumn("Information");
-            table.AddColumn("Change it");
 
             // Add rows
-            table.AddRow("Name:", Name, "Press 1");
-            table.AddRow("Password:", "*********", "Press 2");
-            table.AddRow("Age", Age.ToString(), "Press 3");
-            table.AddRow("Weight", Weight.ToString(), "Press 4");
-            table.AddRow("Height", Height.ToString(), "Press 5");
-            table.AddRow("Created at", Created.ToString(), "");
-            table.AddRow("Active", Active.ToString(), "Press 6");
+            table.AddRow("Name:", Name);
+            table.AddRow("Password:", "*********");
+            table.AddRow("Age", Age.ToString());
+            table.AddRow("Weight", Weight.ToString());
+            table.AddRow("Height", Height.ToString());
+            table.AddRow("Created at", Created.ToString());
+            table.AddRow("Active", Active.ToString());
 
             table.Centered();
             table.Columns[0].Padding(2, 4);
