@@ -73,6 +73,25 @@ namespace Menus
             {
                 new Specialty(specialty).ShowList();
             }
+
+            Console.WriteLine();
+            var option = AnsiConsole.Prompt(
+                new SelectionPrompt<string>()
+                    .Title("Select an option:")
+                    .AddChoices(new[] {
+                        "Go back",
+                        "Exit"
+                    }));
+
+            if (option == "Go back")
+            {
+                Console.Clear();
+                Show();
+            }
+            else if (option == "Exit")
+            {
+                AnsiConsole.Write(new Rule("GOODBYE"));
+            }
         }
 
         private void SeeDoctors()
@@ -88,6 +107,25 @@ namespace Menus
             {
                 if (doctor.Active == true)
                     new Doctor(doctor).ShowList();
+            }
+
+            Console.WriteLine();
+            var option = AnsiConsole.Prompt(
+                new SelectionPrompt<string>()
+                    .Title("Select an option:")
+                    .AddChoices(new[] {
+                        "Go back",
+                        "Exit"
+                    }));
+
+            if (option == "Go back")
+            {
+                Console.Clear();
+                Show();
+            }
+            else if (option == "Exit")
+            {
+                AnsiConsole.Write(new Rule("GOODBYE"));
             }
         }
 
