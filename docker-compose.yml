@@ -1,0 +1,13 @@
+services:
+  app:
+    build: .
+    container_name: app
+    ports:
+      - "5540:5540"          # expone el puerto
+    volumes:
+      - app_data:/app/data # volumen persistente
+    stdin_open: true         # permite entrada en consola
+    tty: true                # asigna TTY (para interactuar)
+
+volumes:
+  app_data:
